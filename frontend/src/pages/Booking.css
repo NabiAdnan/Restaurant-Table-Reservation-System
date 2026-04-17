@@ -1,0 +1,87 @@
+/* Header */
+.booking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  border-bottom: 1px solid var(--gold);
+  background: rgba(0,0,0,0.8);
+}
+
+.layout-container {
+  display: flex;
+  gap: 40px;
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .layout-container {
+    flex-direction: column;
+  }
+}
+
+.left-panel { flex: 1; }
+.right-panel { flex: 1; }
+
+.section { margin-bottom: 30px; }
+.section h3 { color: var(--gold); margin-bottom: 15px; }
+
+.tables-grid {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Table styles */
+.restaurant-table {
+  width: 80px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #111;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.table-couple { border: 2px solid pink; }
+.table-window { border: 2px solid skyblue; }
+.table-family { border: 2px solid orange; }
+.table-vip { border: 2px solid violet; }
+
+.restaurant-table:hover:not(.booked) {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px var(--gold);
+}
+
+.restaurant-table.selected {
+  background: green;
+  animation: pulse 1s infinite;
+}
+
+.restaurant-table.booked {
+  background: red;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 5px green; }
+  50% { box-shadow: 0 0 20px lime; }
+  100% { box-shadow: 0 0 5px green; }
+}
+
+/* Popup */
+.popup-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
